@@ -57,3 +57,15 @@ Column words:
 |  |st|ar|ti|ng|
 ```
 - You can then hit semi-colon ; to get another solution, or press return if you're done.
+
+
+### The algorithm
+
+- The basic strategy is a depth-first backtracking search; Prolog's execution model is depth-first backtracking search, so the language seems a reasonable fit for the problem.
+
+- The code alternates between filling in a full row and filling in a full column. Rows are fill from the top down; columns are filled from left to right.
+
+- The actual search predicate `fill_in/4` relies heavily on _unification_, a feature which isn't found in many programming languages but subsumes both assignment and pattern matching.
+
+- Each time a row (resp. column) is filled, the program checks that all columns (resp. rows) can still be completed into a word. The idea of this is to abandon choices that can't lead to a solution as early as possible. (Because of Prolog's "negation as failure" thing, you can use a double negation `\+ \+` to make sure that completions are possible without committing to them.)
+
