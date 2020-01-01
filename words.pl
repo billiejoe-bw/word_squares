@@ -46,7 +46,7 @@ add_blanks(Word, N, Res) :-
 
 
 word_with_blanks(N, WordAsAtom, WordWithBlanks) :-  % N is number of pairs, not letters.
-	open('c:\\puzzle\\words', read, Str),
+	open('words', read, Str),
     read_file(Str, Lines),
     close(Str),
 	setrand(rand(10,432,8363)),
