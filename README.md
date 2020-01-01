@@ -87,3 +87,4 @@ If you only care about generating some larger solutions (and don't care whether 
 |  |  |  |in|sh|ip|
 ```
 
+Some minimal edits to the code will generate solutions of this form.
