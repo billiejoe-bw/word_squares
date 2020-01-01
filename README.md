@@ -69,3 +69,21 @@ Column words:
 
 - Each time a row (resp. column) is filled, the program checks that all columns (resp. rows) can still be completed into a word. The idea of this is to abandon choices that can't lead to a solution as early as possible. (Because of Prolog's "negation as failure" thing, you can use a double negation `\+ \+` to make sure that completions are possible without committing to them.)
 
+
+### A final idea
+
+If you only care about generating some larger solutions (and don't care whether the program will exhaustively find _all_ solutions), a reasonable strategy seems to be to calculate two solutions _without any blanks_ and then, as long as they don't contain any words in common, you can glue them together like this:
+
+```
+|re|li|st|  |  |  |
+|li|br|al|  |  |  |
+|be|et|le|  |  |  |
+|ra|ti|ng|  |  |  |
+|te|st|er|  |  |  |
+|  |  |  |re|wi|re|
+|  |  |  |di|st|ad|
+|  |  |  |st|on|er|
+|  |  |  |ra|wi|sh|
+|  |  |  |in|sh|ip|
+```
+
